@@ -9,6 +9,5 @@ en = WikiData::Category.new('Category:Members of the Supreme Council (Kyrgyzstan
 
 (ru + en).flatten.uniq.each do |id|
   data = WikiData::Fetcher.new(id: id).data('ky', 'ru') or next
-  puts data
   ScraperWiki.save_sqlite([:id], data)
 end
